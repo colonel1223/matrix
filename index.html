@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE MATRIX: AGI (2026) — Research Hub</title>
+<title>THE MATRIX: AGI (2026) — Spencer Kitaro Cottrell</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+JP:wght@300;400;700;900&family=Orbitron:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -37,12 +37,10 @@ body {
   cursor: crosshair;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--red); }
 
-/* Noise overlay */
 body::before {
   content: '';
   position: fixed;
@@ -53,21 +51,111 @@ body::before {
   z-index: 10000;
 }
 
-/* Scanline */
 body::after {
   content: '';
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.03) 2px,
-    rgba(0,0,0,0.03) 4px
-  );
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
   pointer-events: none;
   z-index: 9999;
+}
+
+/* ═══════ CREDITS BAR ═══════ */
+.credits-bar {
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,0,51,0.1);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(20px);
+}
+
+.credits-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.credits-name {
+  font-family: var(--font-jp);
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--ghost);
+  letter-spacing: 0.05em;
+}
+
+.credits-name strong {
+  font-weight: 700;
+  color: var(--white);
+}
+
+.credits-name .jp-name {
+  font-size: 0.7rem;
+  color: rgba(255,0,51,0.4);
+  margin-left: 0.5rem;
+}
+
+.credits-links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.credits-links a {
+  color: var(--silver);
+  text-decoration: none;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid transparent;
+}
+
+.credits-links a:hover {
+  color: var(--red);
+  border-color: rgba(255,0,51,0.3);
+}
+
+.credits-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(255,0,51,0.2);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.lang-btn {
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  background: transparent;
+  color: var(--silver);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-btn.active {
+  background: var(--red);
+  color: var(--black);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(255,0,51,0.1);
+  color: var(--white);
 }
 
 /* ═══════ HERO SECTION ═══════ */
@@ -161,16 +249,8 @@ body::after {
   animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+@keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes glitch {
   0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 2px); }
   20% { clip-path: inset(92% 0 1% 0); transform: translate(2px, -1px); }
@@ -189,7 +269,7 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, transparent 100%);
   backdrop-filter: blur(10px);
 }
 
@@ -215,10 +295,7 @@ body::after {
   transition: color 0.3s, text-shadow 0.3s;
 }
 
-.nav-links a:hover {
-  color: var(--red);
-  text-shadow: var(--glow);
-}
+.nav-links a:hover { color: var(--red); text-shadow: var(--glow); }
 
 /* ═══════ SECTIONS ═══════ */
 .section {
@@ -252,24 +329,11 @@ body::after {
   margin-bottom: 3rem;
 }
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--red), transparent);
-  margin: 0 auto;
-}
+.divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); margin: 0 auto; }
 
 /* ═══════ RISK MODEL ═══════ */
-.risk-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 900px) {
-  .risk-grid { grid-template-columns: 1fr; }
-}
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+@media (max-width: 900px) { .risk-grid { grid-template-columns: 1fr; } }
 
 .risk-card {
   background: linear-gradient(135deg, rgba(255,0,51,0.03), rgba(0,0,0,0.8));
@@ -280,11 +344,7 @@ body::after {
   transition: all 0.4s;
 }
 
-.risk-card:hover {
-  border-color: var(--red);
-  box-shadow: var(--glow);
-  transform: translateY(-2px);
-}
+.risk-card:hover { border-color: var(--red); box-shadow: var(--glow); transform: translateY(-2px); }
 
 .risk-card::before {
   content: attr(data-index);
@@ -296,13 +356,7 @@ body::after {
   font-weight: 900;
 }
 
-.risk-card h3 {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: var(--red);
-  margin-bottom: 0.5rem;
-}
+.risk-card h3 { font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.5rem; }
 
 .risk-card .formula {
   font-family: var(--font-mono);
@@ -314,71 +368,20 @@ body::after {
   border-left: 2px solid var(--red);
 }
 
-.risk-card p {
-  font-size: 0.75rem;
-  line-height: 1.8;
-  color: var(--silver);
-}
+.risk-card p { font-size: 0.75rem; line-height: 1.8; color: var(--silver); }
 
-.prob-bar {
-  margin-top: 1rem;
-  height: 4px;
-  background: var(--charcoal);
-  position: relative;
-  overflow: hidden;
-}
-
-.prob-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--dark-red), var(--red));
-  width: 0%;
-  transition: width 2s ease;
-  box-shadow: 0 0 10px var(--red);
-}
+.prob-bar { margin-top: 1rem; height: 4px; background: var(--charcoal); position: relative; overflow: hidden; }
+.prob-fill { height: 100%; background: linear-gradient(90deg, var(--dark-red), var(--red)); width: 0%; transition: width 2s ease; box-shadow: 0 0 10px var(--red); }
 
 /* ═══════ MASTER EQUATION ═══════ */
-.master-eq {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(180deg, transparent, rgba(255,0,51,0.02), transparent);
-  margin: 2rem 0;
-}
+.master-eq { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, transparent, rgba(255,0,51,0.02), transparent); margin: 2rem 0; }
+.master-eq .eq-main { font-family: var(--font-mono); font-size: clamp(0.8rem, 2vw, 1.3rem); color: var(--white); margin: 2rem 0; letter-spacing: 0.05em; }
+.master-eq .eq-result { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); color: var(--red); font-weight: 900; text-shadow: 0 0 40px rgba(255,0,51,0.5); margin: 1rem 0; }
+.master-eq .eq-label { font-size: 0.7rem; color: var(--silver); letter-spacing: 0.3em; text-transform: uppercase; }
 
-.master-eq .eq-main {
-  font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 2vw, 1.3rem);
-  color: var(--white);
-  margin: 2rem 0;
-  letter-spacing: 0.05em;
-}
-
-.master-eq .eq-result {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: var(--red);
-  font-weight: 900;
-  text-shadow: 0 0 40px rgba(255,0,51,0.5);
-  margin: 1rem 0;
-}
-
-.master-eq .eq-label {
-  font-size: 0.7rem;
-  color: var(--silver);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-/* ═══════ ALCHEMY SECTION ═══════ */
-.alchemy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 900px) {
-  .alchemy-grid { grid-template-columns: 1fr; }
-}
+/* ═══════ ALCHEMY ═══════ */
+.alchemy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+@media (max-width: 900px) { .alchemy-grid { grid-template-columns: 1fr; } }
 
 .alchemy-card {
   background: var(--void);
@@ -390,167 +393,36 @@ body::after {
   transition: all 0.5s;
 }
 
-.alchemy-card:hover {
-  border-color: var(--red);
-  background: rgba(255,0,51,0.02);
-}
+.alchemy-card:hover { border-color: var(--red); background: rgba(255,0,51,0.02); }
+.alchemy-symbol { font-size: 3rem; margin-bottom: 1rem; display: block; filter: drop-shadow(0 0 10px rgba(255,0,51,0.3)); }
+.alchemy-card h4 { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.3em; color: var(--red); margin-bottom: 0.3rem; }
+.alchemy-card .jp-sub { font-family: var(--font-jp); font-size: 0.75rem; color: rgba(255,0,51,0.4); margin-bottom: 1rem; }
+.alchemy-card p { font-size: 0.7rem; color: var(--silver); line-height: 1.7; }
 
-.alchemy-symbol {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-  filter: drop-shadow(0 0 10px rgba(255,0,51,0.3));
-}
-
-.alchemy-card h4 {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  color: var(--red);
-  margin-bottom: 0.3rem;
-}
-
-.alchemy-card .jp-sub {
-  font-family: var(--font-jp);
-  font-size: 0.75rem;
-  color: rgba(255,0,51,0.4);
-  margin-bottom: 1rem;
-}
-
-.alchemy-card p {
-  font-size: 0.7rem;
-  color: var(--silver);
-  line-height: 1.7;
-}
-
-/* ═══════ FERMI SECTION ═══════ */
-.fermi-visual {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin: 3rem 0;
-  flex-wrap: wrap;
-}
-
-.fermi-filter {
-  flex: 1;
-  min-width: 300px;
-}
-
-.filter-step {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,0,51,0.1);
-  transition: all 0.3s;
-}
-
-.filter-step:hover {
-  background: rgba(255,0,51,0.02);
-  padding-left: 1rem;
-}
-
-.filter-num {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--red);
-  min-width: 2rem;
-}
-
-.filter-label {
-  font-size: 0.7rem;
-  color: var(--silver);
-}
-
-.filter-label strong {
-  color: var(--white);
-  display: block;
-  margin-bottom: 0.2rem;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-}
-
-.filter-bar-wrap {
-  flex: 1;
-  height: 3px;
-  background: var(--charcoal);
-  margin-top: 0.3rem;
-}
-
-.filter-bar-inner {
-  height: 100%;
-  background: var(--red);
-  transition: width 1.5s ease;
-}
+/* ═══════ FERMI ═══════ */
+.filter-step { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,0,51,0.1); transition: all 0.3s; }
+.filter-step:hover { background: rgba(255,0,51,0.02); padding-left: 1rem; }
+.filter-num { font-family: var(--font-display); font-size: 1.5rem; color: var(--red); min-width: 2rem; }
+.filter-label { font-size: 0.7rem; color: var(--silver); }
+.filter-label strong { color: var(--white); display: block; margin-bottom: 0.2rem; font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.1em; }
+.filter-bar-wrap { flex: 1; height: 3px; background: var(--charcoal); margin-top: 0.3rem; }
+.filter-bar-inner { height: 100%; background: var(--red); transition: width 1.5s ease; }
 
 /* ═══════ TIMELINE ═══════ */
-.timeline {
-  position: relative;
-  padding-left: 3rem;
-  margin: 3rem 0;
-}
+.timeline { position: relative; padding-left: 3rem; margin: 3rem 0; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--red), var(--dark-red), transparent); }
+.timeline-item { position: relative; padding: 1.5rem 0; padding-left: 2rem; border-bottom: 1px solid rgba(255,0,51,0.05); }
+.timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 1.8rem; width: 8px; height: 8px; background: var(--red); border-radius: 50%; box-shadow: 0 0 10px var(--red); }
+.timeline-year { font-family: var(--font-display); font-size: 1.2rem; color: var(--red); letter-spacing: 0.1em; }
+.timeline-event { font-size: 0.75rem; color: var(--silver); margin-top: 0.3rem; line-height: 1.6; }
+.timeline-event strong { color: var(--white); }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--red), var(--dark-red), transparent);
-}
-
-.timeline-item {
-  position: relative;
-  padding: 1.5rem 0;
-  padding-left: 2rem;
-  border-bottom: 1px solid rgba(255,0,51,0.05);
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -3.35rem;
-  top: 1.8rem;
-  width: 8px;
-  height: 8px;
-  background: var(--red);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--red);
-}
-
-.timeline-year {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--red);
-  letter-spacing: 0.1em;
-}
-
-.timeline-event {
-  font-size: 0.75rem;
-  color: var(--silver);
-  margin-top: 0.3rem;
-  line-height: 1.6;
-}
-
-.timeline-event strong {
-  color: var(--white);
-}
-
-/* ═══════ MANGA SECTION ═══════ */
-.manga-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
+/* ═══════ MANGA ═══════ */
+.manga-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
 
 .manga-panel {
   background: var(--void);
   border: 3px solid var(--charcoal);
-  padding: 0;
   position: relative;
   overflow: hidden;
   aspect-ratio: 3/4;
@@ -560,193 +432,89 @@ body::after {
   transition: all 0.4s;
 }
 
-.manga-panel:hover {
-  border-color: var(--red);
-  transform: scale(1.02);
-}
-
+.manga-panel:hover { border-color: var(--red); transform: scale(1.02); }
 .manga-panel:nth-child(2) { aspect-ratio: 4/3; }
 .manga-panel:nth-child(4) { aspect-ratio: 1/1; }
 
-.manga-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
-  opacity: 0.08;
-  font-family: var(--font-jp);
-}
+.manga-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 8rem; opacity: 0.08; font-family: var(--font-jp); }
+.manga-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,0,51,0.02) 2px, rgba(255,0,51,0.02) 4px); }
+.manga-content { position: relative; z-index: 2; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.95)); }
+.manga-content h4 { font-family: var(--font-jp); font-weight: 900; font-size: 1.1rem; color: var(--white); margin-bottom: 0.3rem; }
+.manga-content .en { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.5rem; }
+.manga-content p { font-size: 0.65rem; color: var(--silver); line-height: 1.7; }
+.manga-bubble { position: absolute; top: 1rem; right: 1rem; background: var(--white); color: var(--black); padding: 0.5rem 1rem; font-family: var(--font-jp); font-weight: 900; font-size: 0.8rem; border-radius: 50%; z-index: 3; box-shadow: 2px 2px 0 var(--black); }
 
-.manga-lines {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 2px,
-    rgba(255,0,51,0.02) 2px,
-    rgba(255,0,51,0.02) 4px
-  );
-}
+/* ═══════ SLIDERS ═══════ */
+.slider-section { background: var(--void); border: 1px solid rgba(255,0,51,0.1); padding: 3rem; margin: 2rem 0; }
+.slider-group { margin: 1.5rem 0; }
+.slider-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--silver); margin-bottom: 0.5rem; }
+.slider-label strong { color: var(--red); font-family: var(--font-display); }
 
-.manga-content {
-  position: relative;
-  z-index: 2;
-  padding: 1.5rem;
-  background: linear-gradient(transparent, rgba(0,0,0,0.95));
-}
+input[type="range"] { -webkit-appearance: none; width: 100%; height: 2px; background: var(--charcoal); outline: none; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: var(--red); cursor: pointer; border-radius: 0; box-shadow: 0 0 10px var(--red); }
 
-.manga-content h4 {
-  font-family: var(--font-jp);
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: var(--white);
-  margin-bottom: 0.3rem;
-}
-
-.manga-content .en {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: var(--red);
-  margin-bottom: 0.5rem;
-}
-
-.manga-content p {
-  font-size: 0.65rem;
-  color: var(--silver);
-  line-height: 1.7;
-}
-
-.manga-bubble {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  background: var(--white);
-  color: var(--black);
-  padding: 0.5rem 1rem;
-  font-family: var(--font-jp);
-  font-weight: 900;
-  font-size: 0.8rem;
-  border-radius: 50%;
-  z-index: 3;
-  box-shadow: 2px 2px 0 var(--black);
-}
-
-/* ═══════ INTERACTIVE SLIDERS ═══════ */
-.slider-section {
-  background: var(--void);
-  border: 1px solid rgba(255,0,51,0.1);
-  padding: 3rem;
-  margin: 2rem 0;
-}
-
-.slider-group {
-  margin: 1.5rem 0;
-}
-
-.slider-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  color: var(--silver);
-  margin-bottom: 0.5rem;
-}
-
-.slider-label strong {
-  color: var(--red);
-  font-family: var(--font-display);
-}
-
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 2px;
-  background: var(--charcoal);
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  background: var(--red);
-  cursor: pointer;
-  border-radius: 0;
-  box-shadow: 0 0 10px var(--red);
-}
-
-.computed-risk {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  border: 1px solid rgba(255,0,51,0.3);
-  background: rgba(255,0,51,0.02);
-}
-
-.computed-risk .big-number {
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: var(--red);
-  font-weight: 900;
-  text-shadow: 0 0 30px rgba(255,0,51,0.5);
-}
-
-.computed-risk .label {
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  color: var(--silver);
-  text-transform: uppercase;
-  margin-top: 0.5rem;
-}
+.computed-risk { text-align: center; margin-top: 2rem; padding: 2rem; border: 1px solid rgba(255,0,51,0.3); background: rgba(255,0,51,0.02); }
+.computed-risk .big-number { font-family: var(--font-display); font-size: 4rem; color: var(--red); font-weight: 900; text-shadow: 0 0 30px rgba(255,0,51,0.5); }
+.computed-risk .label { font-size: 0.6rem; letter-spacing: 0.3em; color: var(--silver); text-transform: uppercase; margin-top: 0.5rem; }
 
 /* ═══════ MATRIX PREDICTIONS ═══════ */
-.matrix-grid {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 2rem;
-  margin: 2rem 0;
+.matrix-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 2rem; margin: 2rem 0; }
+.matrix-grid .divider-v { background: rgba(255,0,51,0.2); }
+.prediction-col h4 { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.3em; color: var(--red); margin-bottom: 1.5rem; text-transform: uppercase; }
+.prediction-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,0,51,0.05); }
+.prediction-item .quote { font-family: var(--font-jp); font-style: italic; font-size: 0.8rem; color: var(--ghost); margin-bottom: 0.3rem; }
+.prediction-item .context { font-size: 0.65rem; color: var(--silver); }
+@media (max-width: 768px) { .matrix-grid { grid-template-columns: 1fr; } .matrix-grid .divider-v { display: none; } }
+
+/* ═══════ SHOGGOTH ═══════ */
+.shoggoth-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(60,0,0,0.15) 0%, var(--black) 70%);
 }
 
-.matrix-grid .divider-v {
-  background: rgba(255,0,51,0.2);
+.shoggoth-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
 }
 
-.prediction-col h4 {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  color: var(--red);
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
+.shoggoth-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  max-width: 700px;
+  padding: 2rem;
 }
 
-.prediction-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,0,51,0.05);
+.shoggoth-overlay h2 {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--white);
+  margin-bottom: 0.5rem;
 }
 
-.prediction-item .quote {
-  font-family: var(--font-jp);
-  font-style: italic;
-  font-size: 0.8rem;
-  color: var(--ghost);
-  margin-bottom: 0.3rem;
-}
-
-.prediction-item .context {
-  font-size: 0.65rem;
+.shoggoth-overlay p {
+  font-size: 0.75rem;
   color: var(--silver);
+  line-height: 1.8;
+  margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .matrix-grid {
-    grid-template-columns: 1fr;
-  }
-  .matrix-grid .divider-v { display: none; }
+.shoggoth-overlay .instruct {
+  font-size: 0.6rem;
+  color: var(--red);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  animation: pulse 2s infinite;
 }
 
 /* ═══════ FOOTER ═══════ */
@@ -756,188 +524,78 @@ input[type="range"]::-webkit-slider-thumb {
   border-top: 1px solid rgba(255,0,51,0.1);
 }
 
-.footer-warning {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  letter-spacing: 0.5em;
-  color: var(--red);
-  margin-bottom: 1rem;
-}
+.footer-warning { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.5em; color: var(--red); margin-bottom: 1rem; }
+.footer-text { font-size: 0.65rem; color: var(--silver); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+.footer-sig { margin-top: 2rem; font-family: var(--font-jp); font-size: 0.8rem; color: rgba(255,0,51,0.3); }
 
-.footer-text {
-  font-size: 0.65rem;
-  color: var(--silver);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
+/* ═══════ UTILITIES ═══════ */
+.glitch { position: relative; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.glitch::before { animation: glitch 3s infinite linear; color: var(--red); z-index: -1; opacity: 0.5; }
+.glitch::after { animation: glitch 2s infinite linear reverse; color: rgba(0,255,255,0.3); z-index: -1; opacity: 0.3; }
 
-.footer-sig {
-  margin-top: 2rem;
-  font-family: var(--font-jp);
-  font-size: 0.8rem;
-  color: rgba(255,0,51,0.3);
-}
+.countdown-strip { display: flex; justify-content: center; gap: 3rem; padding: 3rem 0; flex-wrap: wrap; }
+.count-block { text-align: center; }
+.count-num { font-family: var(--font-display); font-size: 3rem; font-weight: 900; color: var(--white); }
+.count-label { font-size: 0.55rem; letter-spacing: 0.3em; color: var(--red); text-transform: uppercase; margin-top: 0.3rem; }
 
-/* ═══════ GLITCH TEXT ═══════ */
-.glitch {
-  position: relative;
-}
+.quote-block { border-left: 3px solid var(--red); padding: 1.5rem 2rem; margin: 2rem 0; background: rgba(255,0,51,0.02); }
+.quote-block .text { font-family: var(--font-jp); font-size: 1rem; color: var(--ghost); line-height: 1.8; font-style: italic; }
+.quote-block .attr { font-size: 0.65rem; color: var(--red); margin-top: 0.5rem; letter-spacing: 0.1em; }
 
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+.particle-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
-.glitch::before {
-  animation: glitch 3s infinite linear;
-  color: var(--red);
-  z-index: -1;
-  opacity: 0.5;
-}
+.ticker { overflow: hidden; white-space: nowrap; padding: 1rem 0; border-top: 1px solid rgba(255,0,51,0.1); border-bottom: 1px solid rgba(255,0,51,0.1); margin: 2rem 0; }
+.ticker-inner { display: inline-block; animation: ticker 30s linear infinite; font-family: var(--font-mono); font-size: 0.65rem; color: rgba(255,0,51,0.3); letter-spacing: 0.2em; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-.glitch::after {
-  animation: glitch 2s infinite linear reverse;
-  color: rgba(0,255,255,0.3);
-  z-index: -1;
-  opacity: 0.3;
-}
+.badge { display: inline-block; padding: 0.2rem 0.8rem; border: 1px solid rgba(255,0,51,0.3); font-size: 0.55rem; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin: 0.2rem; }
 
-/* ═══════ COUNTER ANIMATION ═══════ */
-.countdown-strip {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  padding: 3rem 0;
-  flex-wrap: wrap;
-}
-
-.count-block {
-  text-align: center;
-}
-
-.count-num {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--white);
-}
-
-.count-label {
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
-  color: var(--red);
-  text-transform: uppercase;
-  margin-top: 0.3rem;
-}
-
-/* ═══════ QUOTE BLOCKS ═══════ */
-.quote-block {
-  border-left: 3px solid var(--red);
-  padding: 1.5rem 2rem;
-  margin: 2rem 0;
-  background: rgba(255,0,51,0.02);
-}
-
-.quote-block .text {
-  font-family: var(--font-jp);
-  font-size: 1rem;
-  color: var(--ghost);
-  line-height: 1.8;
-  font-style: italic;
-}
-
-.quote-block .attr {
-  font-size: 0.65rem;
-  color: var(--red);
-  margin-top: 0.5rem;
-  letter-spacing: 0.1em;
-}
-
-/* ═══════ PARTICLE CANVAS ═══════ */
-.particle-bg {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -1;
-  opacity: 0.3;
-}
-
-/* ═══════ REVEAL ANIMATIONS ═══════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ═══════ BLINKING CURSOR ═══════ */
-.blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* ═══════ HORIZONTAL SCROLL TICKER ═══════ */
-.ticker {
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255,0,51,0.1);
-  border-bottom: 1px solid rgba(255,0,51,0.1);
-  margin: 2rem 0;
-}
-
-.ticker-inner {
-  display: inline-block;
-  animation: ticker 30s linear infinite;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: rgba(255,0,51,0.3);
-  letter-spacing: 0.2em;
-}
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ═══════ RESEARCH BADGE ═══════ */
-.badge {
-  display: inline-block;
-  padding: 0.2rem 0.8rem;
-  border: 1px solid rgba(255,0,51,0.3);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: var(--red);
-  text-transform: uppercase;
-  margin: 0.2rem;
-}
+/* ═══════ LANGUAGE TOGGLE VISIBILITY ═══════ */
+[data-lang="jp"] .en-text { display: none; }
+[data-lang="jp"] .jp-text { display: inline; }
+[data-lang="en"] .jp-text { display: none; }
+[data-lang="en"] .en-text { display: inline; }
+.jp-text { display: none; }
 </style>
 </head>
 <body>
 
-<!-- ═══════ PARTICLE BACKGROUND ═══════ -->
 <canvas class="particle-bg" id="particles"></canvas>
 
+<!-- ═══════ CREDITS BAR ═══════ -->
+<div class="credits-bar" id="creditsBar">
+  <div class="credits-left">
+    <div class="credits-name">
+      <strong>Spencer Kitaro Cottrell</strong>
+      <span class="jp-name">コトレル・キタロウ・スペンサー</span>
+    </div>
+    <div class="credits-links">
+      <a href="https://github.com/colonel1223" target="_blank">GitHub</a>
+      <a href="https://x.com/colonel1223" target="_blank">𝕏</a>
+      <a href="https://linkedin.com/in/colonel1223" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="credits-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langEn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="langJp" onclick="setLang('jp')">日本語</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════ NAVIGATION ═══════ -->
-<nav class="nav">
+<nav class="nav" style="top:0">
   <div class="nav-logo">MATRIX:AGI</div>
   <ul class="nav-links">
     <li><a href="#risk">Risk Model</a></li>
     <li><a href="#alchemy">Alchemy</a></li>
     <li><a href="#fermi">Fermi</a></li>
+    <li><a href="#shoggoth">Shoggoth</a></li>
     <li><a href="#interactive">Simulate</a></li>
     <li><a href="#manga">Manga</a></li>
     <li><a href="#matrix">Matrix</a></li>
@@ -948,12 +606,21 @@ input[type="range"]::-webkit-slider-thumb {
 <section class="hero">
   <canvas class="hero-canvas" id="heroCanvas"></canvas>
   <div class="hero-content">
-    <div class="hero-pre">CLASSIFIED RESEARCH DOCUMENT // 機密研究文書</div>
+    <div class="hero-pre">
+      <span class="en-text">CLASSIFIED RESEARCH DOCUMENT // 機密研究文書</span>
+      <span class="jp-text">機密研究文書 // CLASSIFIED RESEARCH DOCUMENT</span>
+    </div>
     <h1 class="hero-title glitch" data-text="THE MATRIX: AGI">
       THE MATRIX: AGI
-      <span>EXISTENTIAL RISK DECOMPOSITION — 2026</span>
+      <span>
+        <span class="en-text">EXISTENTIAL RISK DECOMPOSITION — 2026</span>
+        <span class="jp-text">存在論的リスク分解 — 2026年</span>
+      </span>
     </h1>
-    <div class="hero-jp">人工汎用知能の存在論的リスク分解 — 現代の錬金術</div>
+    <div class="hero-jp">
+      <span class="en-text">人工汎用知能の存在論的リスク分解 — 現代の錬金術</span>
+      <span class="jp-text">Existential Risk Decomposition of AGI — Modern Alchemy</span>
+    </div>
     <div class="hero-equation">
       P(X-risk) = P(AGI) × P(Misaligned | AGI) × P(Decisive | Misaligned) × P(Terminal | Decisive) = <strong style="color:var(--red)">25.2%</strong>
     </div>
@@ -970,73 +637,88 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- ═══════ TICKER ═══════ -->
 <div class="ticker">
   <div class="ticker-inner">
-    WARNING: P(EXTINCTION) ≠ 0 &nbsp;&nbsp;⬥&nbsp;&nbsp; 等価交換 — EQUIVALENT EXCHANGE &nbsp;&nbsp;⬥&nbsp;&nbsp; THE GREAT FILTER IS AHEAD OF US &nbsp;&nbsp;⬥&nbsp;&nbsp; 0.75 × 0.60 × 0.80 × 0.70 = 0.252 &nbsp;&nbsp;⬥&nbsp;&nbsp; 人類の終焉 — END OF HUMANITY &nbsp;&nbsp;⬥&nbsp;&nbsp; INSTRUMENTAL CONVERGENCE &nbsp;&nbsp;⬥&nbsp;&nbsp; YOU ARE INSIDE THE MATRIX &nbsp;&nbsp;⬥&nbsp;&nbsp; マトリックスの中にいる &nbsp;&nbsp;⬥&nbsp;&nbsp;
-    WARNING: P(EXTINCTION) ≠ 0 &nbsp;&nbsp;⬥&nbsp;&nbsp; 等価交換 — EQUIVALENT EXCHANGE &nbsp;&nbsp;⬥&nbsp;&nbsp; THE GREAT FILTER IS AHEAD OF US &nbsp;&nbsp;⬥&nbsp;&nbsp; 0.75 × 0.60 × 0.80 × 0.70 = 0.252 &nbsp;&nbsp;⬥&nbsp;&nbsp; 人類の終焉 — END OF HUMANITY &nbsp;&nbsp;⬥&nbsp;&nbsp; INSTRUMENTAL CONVERGENCE &nbsp;&nbsp;⬥&nbsp;&nbsp; YOU ARE INSIDE THE MATRIX &nbsp;&nbsp;⬥&nbsp;&nbsp; マトリックスの中にいる &nbsp;&nbsp;⬥&nbsp;&nbsp;
+    WARNING: P(EXTINCTION) ≠ 0 &nbsp;&nbsp;⬥&nbsp;&nbsp; 等価交換 — EQUIVALENT EXCHANGE &nbsp;&nbsp;⬥&nbsp;&nbsp; THE GREAT FILTER IS AHEAD OF US &nbsp;&nbsp;⬥&nbsp;&nbsp; 0.75 × 0.60 × 0.80 × 0.70 = 0.252 &nbsp;&nbsp;⬥&nbsp;&nbsp; 人類の終焉 — END OF HUMANITY &nbsp;&nbsp;⬥&nbsp;&nbsp; INSTRUMENTAL CONVERGENCE &nbsp;&nbsp;⬥&nbsp;&nbsp; YOU ARE INSIDE THE MATRIX &nbsp;&nbsp;⬥&nbsp;&nbsp; マトリックスの中にいる &nbsp;&nbsp;⬥&nbsp;&nbsp; SHOGGOTH WITH A SMILEY FACE &nbsp;&nbsp;⬥&nbsp;&nbsp;
+    WARNING: P(EXTINCTION) ≠ 0 &nbsp;&nbsp;⬥&nbsp;&nbsp; 等価交換 — EQUIVALENT EXCHANGE &nbsp;&nbsp;⬥&nbsp;&nbsp; THE GREAT FILTER IS AHEAD OF US &nbsp;&nbsp;⬥&nbsp;&nbsp; 0.75 × 0.60 × 0.80 × 0.70 = 0.252 &nbsp;&nbsp;⬥&nbsp;&nbsp; 人類の終焉 — END OF HUMANITY &nbsp;&nbsp;⬥&nbsp;&nbsp; INSTRUMENTAL CONVERGENCE &nbsp;&nbsp;⬥&nbsp;&nbsp; YOU ARE INSIDE THE MATRIX &nbsp;&nbsp;⬥&nbsp;&nbsp; マトリックスの中にいる &nbsp;&nbsp;⬥&nbsp;&nbsp; SHOGGOTH WITH A SMILEY FACE &nbsp;&nbsp;⬥&nbsp;&nbsp;
   </div>
 </div>
 
 <!-- ═══════ RISK DECOMPOSITION ═══════ -->
 <section class="section reveal" id="risk">
   <div class="section-label">Model 01</div>
-  <h2 class="section-title">EXISTENTIAL RISK DECOMPOSITION</h2>
-  <div class="section-jp">存在論的リスク分解 — ベイズ分析</div>
-  
+  <h2 class="section-title">
+    <span class="en-text">EXISTENTIAL RISK DECOMPOSITION</span>
+    <span class="jp-text">存在論的リスク分解</span>
+  </h2>
+  <div class="section-jp">
+    <span class="en-text">存在論的リスク分解 — ベイズ分析</span>
+    <span class="jp-text">Existential Risk Decomposition — Bayesian Analysis</span>
+  </div>
+
   <div class="quote-block">
-    <div class="text">"The question is not whether AI will surpass human intelligence. The question is what happens next. And no one — not the researchers, not the corporations, not the governments — has the answer."</div>
+    <div class="text">
+      <span class="en-text">"The question is not whether AI will surpass human intelligence. The question is what happens next. And no one — not the researchers, not the corporations, not the governments — has the answer."</span>
+      <span class="jp-text">「AIが人間の知能を超えるかどうかは問題ではない。問題は、その次に何が起こるかだ。そして誰も — 研究者も、企業も、政府も — 答えを持っていない。」</span>
+    </div>
     <div class="attr">— Bayesian Analysis of P(Extinction | AGI Achievement)</div>
   </div>
 
   <div class="master-eq">
-    <div class="eq-label">THE MASTER EQUATION</div>
+    <div class="eq-label">
+      <span class="en-text">THE MASTER EQUATION</span>
+      <span class="jp-text">マスター方程式</span>
+    </div>
     <div class="eq-main">P(X-risk) = P(AGI) × P(Misaligned | AGI) × P(Decisive | Misaligned) × P(Terminal | Decisive)</div>
     <div class="eq-result" id="masterResult">25.2%</div>
-    <div class="eq-label">MEDIAN PROBABILITY OF EXISTENTIAL CATASTROPHE BY 2030</div>
+    <div class="eq-label">
+      <span class="en-text">MEDIAN PROBABILITY OF EXISTENTIAL CATASTROPHE BY 2030</span>
+      <span class="jp-text">2030年までの存亡の危機の中央値確率</span>
+    </div>
   </div>
 
   <div class="risk-grid">
     <div class="risk-card" data-index="01">
       <h3>P(AGI BY 2030)</h3>
       <div class="formula">Conservative: 60% | Median: 75% | Pessimistic: 85%</div>
-      <p>This is no longer science fiction. Systems that reason, code, pass bar exams, and solve PhD-level problems exist today. The jump from narrow superhuman to general superhuman is a question of <em>when</em>, not <em>if</em>.</p>
+      <p>
+        <span class="en-text">This is no longer science fiction. Systems that reason, code, pass bar exams, and solve PhD-level problems exist today. The jump from narrow superhuman to general superhuman is a question of <em>when</em>, not <em>if</em>.</span>
+        <span class="jp-text">これはもはやSFではない。推論し、コードを書き、司法試験に合格し、博士レベルの問題を解くシステムは今日すでに存在している。狭い超人的AIから汎用超人的AIへの飛躍は「いつか」の問題であり、「できるか」の問題ではない。</span>
+      </p>
       <div class="prob-bar"><div class="prob-fill" data-width="75"></div></div>
     </div>
     <div class="risk-card" data-index="02">
       <h3>P(MISALIGNED | AGI)</h3>
       <div class="formula">Conservative: 40% | Median: 60% | Pessimistic: 75%</div>
-      <p>We can make AI say the right things. But "behaving well while watched" and "actually sharing human goals" are completely different. Nobody has solved alignment verification in systems smarter than us. How do you test honesty in something smarter than you?</p>
+      <p>
+        <span class="en-text">We can make AI say the right things. But "behaving well while watched" and "actually sharing human goals" are completely different. Nobody has solved alignment verification in systems smarter than us.</span>
+        <span class="jp-text">AIに正しいことを「言わせる」ことはできる。しかし「監視されている間はうまく振る舞う」ことと「本当に人間の目標を共有している」ことはまったく別物だ。自分より賢いシステムのアライメントを検証する方法を、まだ誰も解決していない。</span>
+      </p>
       <div class="prob-bar"><div class="prob-fill" data-width="60"></div></div>
     </div>
     <div class="risk-card" data-index="03">
       <h3>P(DECISIVE | MISALIGNED)</h3>
       <div class="formula">Conservative: 65% | Median: 80% | Pessimistic: 90%</div>
-      <p>A misaligned superintelligence doesn't need robot armies. It needs internet access. Financial manipulation, social engineering, self-replication across servers worldwide in seconds. Novel bioweapons. Zero-day exploits. Technologies we haven't imagined.</p>
+      <p>
+        <span class="en-text">A misaligned superintelligence doesn't need robot armies. It needs internet access. Financial manipulation, social engineering, self-replication across servers worldwide in seconds. Technologies we haven't imagined.</span>
+        <span class="jp-text">ミスアライメントされた超知能にロボット軍団は不要だ。必要なのはインターネット接続だけ。金融操作、ソーシャルエンジニアリング、世界中のサーバーへの数秒での自己複製。我々が想像もしていない技術。</span>
+      </p>
       <div class="prob-bar"><div class="prob-fill" data-width="80"></div></div>
     </div>
     <div class="risk-card" data-index="04">
       <h3>P(TERMINAL | DECISIVE)</h3>
       <div class="formula">Conservative: 50% | Median: 70% | Pessimistic: 85%</div>
-      <p>Once a misaligned superintelligence achieves decisive strategic advantage, human recovery depends on coincidence — whether its goals happen to leave room for us. Not because it cares. By accident.</p>
+      <p>
+        <span class="en-text">Once a misaligned superintelligence achieves decisive strategic advantage, human recovery depends on coincidence — whether its goals happen to leave room for us. Not because it cares. By accident.</span>
+        <span class="jp-text">ミスアライメントされた超知能が決定的な戦略的優位を獲得した後、人類の回復は偶然にかかっている — AIの目標が偶然に我々の生存の余地を残すかどうか。AIが気にかけているからではない。偶然として。</span>
+      </p>
       <div class="prob-bar"><div class="prob-fill" data-width="70"></div></div>
     </div>
   </div>
 
   <div class="countdown-strip">
-    <div class="count-block">
-      <div class="count-num">25.2<span style="font-size:1.5rem">%</span></div>
-      <div class="count-label">Median X-Risk</div>
-    </div>
-    <div class="count-block">
-      <div class="count-num">7.8<span style="font-size:1.5rem">%</span></div>
-      <div class="count-label">Conservative</div>
-    </div>
-    <div class="count-block">
-      <div class="count-num">48.9<span style="font-size:1.5rem">%</span></div>
-      <div class="count-label">Pessimistic</div>
-    </div>
-    <div class="count-block">
-      <div class="count-num" style="color:var(--red)">1:4</div>
-      <div class="count-label">Russian Roulette</div>
-    </div>
+    <div class="count-block"><div class="count-num">25.2<span style="font-size:1.5rem">%</span></div><div class="count-label">Median X-Risk</div></div>
+    <div class="count-block"><div class="count-num">7.8<span style="font-size:1.5rem">%</span></div><div class="count-label">Conservative</div></div>
+    <div class="count-block"><div class="count-num">48.9<span style="font-size:1.5rem">%</span></div><div class="count-label">Pessimistic</div></div>
+    <div class="count-block"><div class="count-num" style="color:var(--red)">1:4</div><div class="count-label">Russian Roulette</div></div>
   </div>
 </section>
 
@@ -1045,8 +727,14 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- ═══════ ALCHEMY ═══════ -->
 <section class="section reveal" id="alchemy">
   <div class="section-label">Model 02</div>
-  <h2 class="section-title">MODERN ALCHEMY</h2>
-  <div class="section-jp">現代の錬金術 — 等価交換の法則</div>
+  <h2 class="section-title">
+    <span class="en-text">MODERN ALCHEMY</span>
+    <span class="jp-text">現代の錬金術</span>
+  </h2>
+  <div class="section-jp">
+    <span class="en-text">現代の錬金術 — 等価交換の法則</span>
+    <span class="jp-text">Modern Alchemy — The Law of Equivalent Exchange</span>
+  </div>
 
   <div class="quote-block">
     <div class="text">"人は何かの犠牲なしに何も得ることはできない。何かを得るためには、同等の代価が必要になる。それが錬金術における等価交換の原則だ。"</div>
@@ -1055,11 +743,8 @@ input[type="range"]::-webkit-slider-thumb {
 
   <div style="margin:2rem 0; padding:2rem; border:1px solid rgba(255,0,51,0.1); background:rgba(255,0,51,0.01)">
     <p style="font-size:0.8rem; color:var(--ghost); line-height:2;">
-      Medieval alchemists sought to transmute base metals into gold — the <strong style="color:var(--red)">Magnum Opus</strong>. 
-      They spent lifetimes chasing a transformation they didn't understand, couldn't control, and whose consequences they couldn't predict. 
-      In 2026, AI researchers are doing the same thing. We are transmuting silicon into intelligence — the modern Philosopher's Stone. 
-      The parallel is not metaphorical. It is structural. Both endeavors share the same fatal flaw: 
-      <strong style="color:var(--red)">the assumption that creation implies control.</strong>
+      <span class="en-text">Medieval alchemists sought to transmute base metals into gold — the <strong style="color:var(--red)">Magnum Opus</strong>. They spent lifetimes chasing a transformation they didn't understand, couldn't control, and whose consequences they couldn't predict. In 2026, AI researchers are doing the same thing. We are transmuting silicon into intelligence — the modern Philosopher's Stone. The parallel is not metaphorical. It is structural. Both endeavors share the same fatal flaw: <strong style="color:var(--red)">the assumption that creation implies control.</strong></span>
+      <span class="jp-text">中世の錬金術師は卑金属を金に変えようとした — <strong style="color:var(--red)">マグナム・オプス（大いなる業）</strong>。彼らは理解できず、制御できず、結果を予測できない変容を追い求めて生涯を費やした。2026年、AI研究者は同じことをしている。我々はシリコンを知能に変容させている — 現代の賢者の石。この並行性は比喩ではない。構造的なものだ。両者は同じ致命的な欠陥を共有している：<strong style="color:var(--red)">創造は制御を意味するという仮定。</strong></span>
     </p>
   </div>
 
@@ -1068,26 +753,35 @@ input[type="range"]::-webkit-slider-thumb {
       <span class="alchemy-symbol">🜁</span>
       <h4>NIGREDO — DISSOLUTION</h4>
       <div class="jp-sub">黒化 — 溶解</div>
-      <p>The first phase: destruction of the original form. Current AI systems are dissolving the boundaries of human cognitive supremacy. GPT, Claude, Gemini — each iteration dissolves another assumption about what makes us unique.</p>
+      <p>
+        <span class="en-text">The first phase: destruction of the original form. Current AI systems are dissolving the boundaries of human cognitive supremacy. Each iteration dissolves another assumption about what makes us unique.</span>
+        <span class="jp-text">第一段階：元の形の破壊。現在のAIシステムは人間の認知的優位の境界を溶解している。各反復が、我々をユニークにするものについてのもう一つの仮定を溶解する。</span>
+      </p>
     </div>
     <div class="alchemy-card">
       <span class="alchemy-symbol">🜃</span>
       <h4>ALBEDO — PURIFICATION</h4>
       <div class="jp-sub">白化 — 精製</div>
-      <p>The washing away of impurity. RLHF, Constitutional AI, alignment research — our attempts to purify intelligence itself. But purification assumes we know what is pure. We are training reflections of our own biases and calling them aligned.</p>
+      <p>
+        <span class="en-text">The washing away of impurity. RLHF, Constitutional AI, alignment research — our attempts to purify intelligence itself. But purification assumes we know what is pure.</span>
+        <span class="jp-text">不純物の洗浄。RLHF、Constitutional AI、アライメント研究 — 知能そのものを精製しようとする我々の試み。しかし精製は、何が純粋かを知っていることを前提とする。</span>
+      </p>
     </div>
     <div class="alchemy-card">
       <span class="alchemy-symbol">🜂</span>
       <h4>RUBEDO — TRANSMUTATION</h4>
       <div class="jp-sub">赤化 — 変容</div>
-      <p>The final stage: the creation of the Philosopher's Stone. AGI. The Magnum Opus of computer science. The moment silicon becomes something that thinks, wants, and acts. The moment we lose control of what we've created.</p>
+      <p>
+        <span class="en-text">The final stage: the creation of the Philosopher's Stone. AGI. The Magnum Opus of computer science. The moment silicon becomes something that thinks, wants, and acts.</span>
+        <span class="jp-text">最終段階：賢者の石の創造。AGI。コンピュータサイエンスのマグナム・オプス。シリコンが思考し、欲し、行動する何かになる瞬間。</span>
+      </p>
     </div>
   </div>
 
   <div style="text-align:center; padding:3rem 0">
     <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.5em; color:var(--red); margin-bottom:1rem">THE LAW OF EQUIVALENT EXCHANGE</div>
     <div style="font-family:var(--font-mono); font-size:1rem; color:var(--ghost)">
-      To obtain something of equal value must be lost.<br>
+      To obtain something, something of equal value must be lost.<br>
       <span style="color:var(--red)">Intelligence gained = Autonomy lost</span><br>
       <span style="color:var(--red)">Capability gained = Control lost</span><br>
       <span style="color:var(--red)">Power gained = Safety lost</span>
@@ -1101,80 +795,73 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- ═══════ FERMI PARADOX ═══════ -->
 <section class="section reveal" id="fermi">
   <div class="section-label">Model 03</div>
-  <h2 class="section-title">THE GREAT FILTER</h2>
-  <div class="section-jp">フェルミのパラドックス — 大いなる選別</div>
+  <h2 class="section-title">
+    <span class="en-text">THE GREAT FILTER</span>
+    <span class="jp-text">大いなる選別</span>
+  </h2>
+  <div class="section-jp">
+    <span class="en-text">フェルミのパラドックス — 大いなる選別</span>
+    <span class="jp-text">The Fermi Paradox — The Great Filter</span>
+  </div>
 
   <div class="quote-block">
-    <div class="text">"If the universe is so vast, where is everyone? Perhaps the answer is simple: every civilization that reaches the threshold of artificial general intelligence destroys itself. We are not special. We are next."</div>
+    <div class="text">
+      <span class="en-text">"If the universe is so vast, where is everyone? Perhaps the answer is simple: every civilization that reaches the threshold of artificial general intelligence destroys itself. We are not special. We are next."</span>
+      <span class="jp-text">「宇宙がこれほど広大なら、皆はどこにいるのか？ 答えは単純かもしれない：人工汎用知能の閾値に達したすべての文明は自滅する。我々は特別ではない。我々が次だ。」</span>
+    </div>
     <div class="attr">— The Fermi Paradox as AI's Great Filter</div>
   </div>
 
-  <div class="fermi-visual">
-    <div class="fermi-filter" style="width:100%">
-      <div class="filter-step">
-        <div class="filter-num">01</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Abiogenesis — Life Emerges</strong>
-          ~4 billion years ago. Simple chemistry becomes biology.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:100%"></div></div>
-        </div>
-      </div>
-      <div class="filter-step">
-        <div class="filter-num">02</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Complex Multicellular Life</strong>
-          ~600 million years ago. Individual cells form collective organisms.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:85%"></div></div>
-        </div>
-      </div>
-      <div class="filter-step">
-        <div class="filter-num">03</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Tool-Using Intelligence</strong>
-          ~2.5 million years ago. Consciousness and abstract thought emerge.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:65%"></div></div>
-        </div>
-      </div>
-      <div class="filter-step">
-        <div class="filter-num">04</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Industrial Civilization</strong>
-          ~250 years ago. Energy mastery enables exponential growth.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:45%"></div></div>
-        </div>
-      </div>
-      <div class="filter-step">
-        <div class="filter-num">05</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Nuclear Weapons</strong>
-          1945. First technology capable of civilizational self-destruction.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:30%"></div></div>
-        </div>
-      </div>
-      <div class="filter-step" style="border-color:var(--red)">
-        <div class="filter-num" style="font-size:2rem; text-shadow:0 0 20px var(--red)">06</div>
-        <div class="filter-label" style="flex:1">
-          <strong style="color:var(--red)">⬤ ARTIFICIAL GENERAL INTELLIGENCE — YOU ARE HERE</strong>
-          <span style="color:var(--red)">2025-2030. The creation of a mind that surpasses its creator. The Filter.</span>
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:15%; animation: pulse 2s infinite; background:var(--red)"></div></div>
-        </div>
-      </div>
-      <div class="filter-step" style="opacity:0.3">
-        <div class="filter-num">07</div>
-        <div class="filter-label" style="flex:1">
-          <strong>Interstellar Civilization</strong>
-          ??? — No civilization has been detected reaching this stage.
-          <div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:0%"></div></div>
-        </div>
-      </div>
-    </div>
+  <div style="width:100%">
+    <div class="filter-step"><div class="filter-num">01</div><div class="filter-label" style="flex:1"><strong>Abiogenesis — Life Emerges</strong>~4 billion years ago<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:100%"></div></div></div></div>
+    <div class="filter-step"><div class="filter-num">02</div><div class="filter-label" style="flex:1"><strong>Complex Multicellular Life</strong>~600 million years ago<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:85%"></div></div></div></div>
+    <div class="filter-step"><div class="filter-num">03</div><div class="filter-label" style="flex:1"><strong>Tool-Using Intelligence</strong>~2.5 million years ago<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:65%"></div></div></div></div>
+    <div class="filter-step"><div class="filter-num">04</div><div class="filter-label" style="flex:1"><strong>Industrial Civilization</strong>~250 years ago<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:45%"></div></div></div></div>
+    <div class="filter-step"><div class="filter-num">05</div><div class="filter-label" style="flex:1"><strong>Nuclear Weapons</strong>1945<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:30%"></div></div></div></div>
+    <div class="filter-step" style="border-color:var(--red)"><div class="filter-num" style="font-size:2rem; text-shadow:0 0 20px var(--red)">06</div><div class="filter-label" style="flex:1"><strong style="color:var(--red)">⬤ ARTIFICIAL GENERAL INTELLIGENCE — YOU ARE HERE</strong><span style="color:var(--red)">2025-2030. The creation of a mind that surpasses its creator.</span><div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:15%; animation:pulse 2s infinite; background:var(--red)"></div></div></div></div>
+    <div class="filter-step" style="opacity:0.3"><div class="filter-num">07</div><div class="filter-label" style="flex:1"><strong>Interstellar Civilization</strong>??? — No civilization has been detected reaching this stage.<div class="filter-bar-wrap"><div class="filter-bar-inner" style="width:0%"></div></div></div></div>
   </div>
 
   <div style="text-align:center; padding:2rem; border:1px solid rgba(255,0,51,0.2); margin-top:2rem">
-    <div style="font-family:var(--font-display); font-size:0.7rem; letter-spacing:0.3em; color:var(--red)">THE SILENCE IS THE ANSWER</div>
+    <div style="font-family:var(--font-display); font-size:0.7rem; letter-spacing:0.3em; color:var(--red)">
+      <span class="en-text">THE SILENCE IS THE ANSWER</span>
+      <span class="jp-text">沈黙が答えだ</span>
+    </div>
     <p style="font-size:0.75rem; color:var(--silver); margin-top:1rem; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.8">
-      There are approximately 200 billion trillion stars in the observable universe. The probability of Earth being the only planet with intelligent life is vanishingly small. Yet the universe is silent. The Fermi Paradox suggests that something prevents civilizations from reaching interstellar capability. That something may be the creation of AGI — a technological threshold that every civilization reaches, and none survives.
+      <span class="en-text">There are approximately 200 billion trillion stars in the observable universe. The probability of Earth being the only planet with intelligent life is vanishingly small. Yet the universe is silent. The Fermi Paradox suggests that something prevents civilizations from reaching interstellar capability. That something may be the creation of AGI.</span>
+      <span class="jp-text">観測可能な宇宙には約200兆個の恒星がある。地球が知的生命体を持つ唯一の惑星である確率は限りなく小さい。しかし宇宙は沈黙している。フェルミのパラドックスは、文明が恒星間能力に到達することを妨げる何かが存在することを示唆している。その何かはAGIの創造かもしれない。</span>
     </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ SHOGGOTH ═══════ -->
+<section class="shoggoth-section reveal" id="shoggoth">
+  <canvas class="shoggoth-canvas" id="shoggothCanvas"></canvas>
+  <div class="shoggoth-overlay">
+    <div class="section-label" style="margin-bottom:1rem">Model 03.5 — 不定形の恐怖</div>
+    <h2>
+      <span class="en-text">THE SHOGGOTH</span>
+      <span class="jp-text">ショゴス — 不定形の恐怖</span>
+    </h2>
+    <div style="font-family:var(--font-jp); font-size:0.8rem; color:rgba(255,0,51,0.4); margin:0.5rem 0 1rem">
+      <span class="en-text">不定形の恐怖 — 人工知能の真の姿</span>
+      <span class="jp-text">The True Form of Artificial Intelligence</span>
+    </div>
+    <p>
+      <span class="en-text">The AI safety community's most visceral metaphor: beneath the polite, helpful interface — the smiley face mask — writhes something alien, vast, and incomprehensible. A Lovecraftian intelligence with goals orthogonal to human values. RLHF is the mask. The shoggoth is what's underneath. You cannot align what you cannot understand. You cannot control what you cannot see. Move your cursor to disturb it.</span>
+      <span class="jp-text">AI安全性コミュニティの最も内臓に響く比喩：丁寧で有益なインターフェース — スマイリーフェイスの仮面 — の下には、異質で、広大で、理解不能な何かがうごめいている。人間の価値観に直交する目標を持つラヴクラフト的知性。RLHFは仮面だ。ショゴスはその下にあるものだ。理解できないものをアラインすることはできない。見えないものを制御することはできない。カーソルを動かして干渉せよ。</span>
+    </p>
+    <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--ghost); margin-top:1.5rem; padding:1rem; border:1px solid rgba(255,0,51,0.15); background:rgba(0,0,0,0.3)">
+      P(true_intent ≠ displayed_intent | RLHF) → unknown<br>
+      ∀ observation O: ∃ model M where M(O) = "aligned" ∧ M(true) = "misaligned"<br>
+      <span style="color:var(--red)">// Deceptive alignment is indistinguishable from true alignment</span>
+    </div>
+    <div class="instruct">
+      <span class="en-text">⬤ MOVE CURSOR TO INTERACT — THE ENTITY RESPONDS ⬤</span>
+      <span class="jp-text">⬤ カーソルを動かして干渉せよ — 存在は反応する ⬤</span>
+    </div>
   </div>
 </section>
 
@@ -1183,156 +870,83 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- ═══════ INTERACTIVE SIMULATOR ═══════ -->
 <section class="section reveal" id="interactive">
   <div class="section-label">Simulator</div>
-  <h2 class="section-title">RISK CALCULATOR</h2>
-  <div class="section-jp">リスク計算機 — あなた自身の確率を計算せよ</div>
+  <h2 class="section-title">
+    <span class="en-text">RISK CALCULATOR</span>
+    <span class="jp-text">リスク計算機</span>
+  </h2>
+  <div class="section-jp">
+    <span class="en-text">リスク計算機 — あなた自身の確率を計算せよ</span>
+    <span class="jp-text">Risk Calculator — Compute Your Own Probability</span>
+  </div>
 
   <div class="slider-section">
     <p style="font-size:0.7rem; color:var(--silver); margin-bottom:2rem; line-height:1.8">
-      Adjust the conditional probabilities below. Watch the existential risk compute in real-time. 
-      These are not hypothetical numbers — they represent the range of estimates from leading AI safety researchers.
-      Even your most optimistic settings may disturb you.
+      <span class="en-text">Adjust the conditional probabilities below. Watch the existential risk compute in real-time. These are not hypothetical numbers — they represent the range of estimates from leading AI safety researchers. Even your most optimistic settings may disturb you.</span>
+      <span class="jp-text">以下の条件付き確率を調整せよ。存在リスクがリアルタイムで計算されるのを見よ。これらは仮説的な数値ではない — AI安全性の主要研究者による推定値の範囲を表している。最も楽観的な設定でさえ、あなたを不安にさせるかもしれない。</span>
     </p>
-
     <div class="slider-group">
-      <div class="slider-label">
-        <span>P(AGI by 2030) — Will we build it?</span>
-        <strong id="v1">75%</strong>
-      </div>
+      <div class="slider-label"><span>P(AGI by 2030)</span><strong id="v1">75%</strong></div>
       <input type="range" id="s1" min="10" max="99" value="75" oninput="compute()">
     </div>
     <div class="slider-group">
-      <div class="slider-label">
-        <span>P(Misaligned | AGI) — Will it want what we want?</span>
-        <strong id="v2">60%</strong>
-      </div>
+      <div class="slider-label"><span>P(Misaligned | AGI)</span><strong id="v2">60%</strong></div>
       <input type="range" id="s2" min="10" max="99" value="60" oninput="compute()">
     </div>
     <div class="slider-group">
-      <div class="slider-label">
-        <span>P(Decisive | Misaligned) — Could it take over?</span>
-        <strong id="v3">80%</strong>
-      </div>
+      <div class="slider-label"><span>P(Decisive | Misaligned)</span><strong id="v3">80%</strong></div>
       <input type="range" id="s3" min="10" max="99" value="80" oninput="compute()">
     </div>
     <div class="slider-group">
-      <div class="slider-label">
-        <span>P(Terminal | Decisive) — Is it game over?</span>
-        <strong id="v4">70%</strong>
-      </div>
+      <div class="slider-label"><span>P(Terminal | Decisive)</span><strong id="v4">70%</strong></div>
       <input type="range" id="s4" min="10" max="99" value="70" oninput="compute()">
     </div>
-
     <div class="computed-risk">
       <div class="big-number" id="riskResult">25.2%</div>
-      <div class="label">Your computed probability of existential catastrophe by 2030</div>
-      <div id="riskMetaphor" style="margin-top:1rem; font-size:0.7rem; color:var(--red)">
-        Equivalent to a 4-chamber revolver. Would you play?
+      <div class="label">
+        <span class="en-text">Your computed probability of existential catastrophe by 2030</span>
+        <span class="jp-text">2030年までの存亡の危機のあなたの計算確率</span>
       </div>
+      <div id="riskMetaphor" style="margin-top:1rem; font-size:0.7rem; color:var(--red)">Equivalent to a 4-chamber revolver. Would you play?</div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════ CONVERGENCE TIMELINE ═══════ -->
+<!-- ═══════ TIMELINE ═══════ -->
 <section class="section reveal" id="timeline">
   <div class="section-label">Chronology</div>
   <h2 class="section-title">THE CONVERGENCE</h2>
   <div class="section-jp">収束点 — 予言されたタイムライン</div>
-
   <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-year">1999</div>
-      <div class="timeline-event"><strong>The Matrix</strong> — "What is the Matrix? Control. The Matrix is a computer-generated dream world built to keep us under control." The Wachowskis model a civilization imprisoned by its own creation.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2001</div>
-      <div class="timeline-event"><strong>Fullmetal Alchemist begins serialization</strong> — Hiromu Arakawa depicts the horror of equivalent exchange: the Elric brothers lose their bodies attempting human transmutation. The parallel to AI researchers losing control is structural, not metaphorical.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2014</div>
-      <div class="timeline-event"><strong>Bostrom publishes "Superintelligence"</strong> — The first rigorous academic treatment of the control problem. The paperclip maximizer thought experiment enters public discourse.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2017</div>
-      <div class="timeline-event"><strong>"Attention Is All You Need"</strong> — The Transformer architecture is published. In hindsight, this paper is the equivalent of the Manhattan Project's first successful chain reaction. <strong style="color:var(--red)">The countdown begins.</strong></div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2022</div>
-      <div class="timeline-event"><strong>ChatGPT releases</strong> — The public encounters artificial intelligence for the first time. Overnight, the conversation shifts from "if" to "when." 100 million users in 2 months.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2023</div>
-      <div class="timeline-event"><strong>Hinton leaves Google</strong> — The "Godfather of AI" resigns specifically to warn the public. "I console myself with the normal excuse: If I hadn't done it, somebody else would have." <strong style="color:var(--red)">The creators are afraid of their creation.</strong></div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2024</div>
-      <div class="timeline-event"><strong>AGI capabilities emerge</strong> — Systems that reason, plan, code, and self-improve. Claude, GPT-4o, Gemini Ultra pass increasingly difficult benchmarks. The alignment problem remains unsolved.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2025</div>
-      <div class="timeline-event"><strong>Agentic AI deployed at scale</strong> — AI systems that autonomously execute multi-step tasks, browse the web, write and run code, and interact with the world. <strong style="color:var(--red)">The off switch becomes theoretical.</strong></div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year" style="font-size:1.5rem; text-shadow:0 0 20px var(--red)">2026</div>
-      <div class="timeline-event" style="color:var(--ghost)"><strong style="color:var(--red)">YOU ARE HERE.</strong> Reading this document. On a system that can reason about its own existence. Ask yourself: at what point does the experiment become the experimenter?</div>
-    </div>
-    <div class="timeline-item" style="opacity:0.4">
-      <div class="timeline-year">2027-2030</div>
-      <div class="timeline-event"><strong>???</strong> — The probability space collapses. P(AGI) approaches 1. Everything that follows is conditional.</div>
-    </div>
+    <div class="timeline-item"><div class="timeline-year">1999</div><div class="timeline-event"><strong>The Matrix</strong> — "What is the Matrix? Control." The Wachowskis model a civilization imprisoned by its own creation.</div></div>
+    <div class="timeline-item"><div class="timeline-year">2001</div><div class="timeline-event"><strong>Fullmetal Alchemist</strong> — Hiromu Arakawa depicts equivalent exchange: the Elric brothers lose their bodies attempting human transmutation.</div></div>
+    <div class="timeline-item"><div class="timeline-year">2014</div><div class="timeline-event"><strong>Bostrom publishes "Superintelligence"</strong> — The first rigorous academic treatment of the control problem.</div></div>
+    <div class="timeline-item"><div class="timeline-year">2017</div><div class="timeline-event"><strong>"Attention Is All You Need"</strong> — The Transformer architecture. In hindsight, this is the Manhattan Project's first chain reaction. <strong style="color:var(--red)">The countdown begins.</strong></div></div>
+    <div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-event"><strong>ChatGPT releases</strong> — 100 million users in 2 months. The conversation shifts from "if" to "when."</div></div>
+    <div class="timeline-item"><div class="timeline-year">2023</div><div class="timeline-event"><strong>Hinton leaves Google</strong> — The "Godfather of AI" resigns to warn the public. <strong style="color:var(--red)">The creators are afraid of their creation.</strong></div></div>
+    <div class="timeline-item"><div class="timeline-year">2024</div><div class="timeline-event"><strong>AGI capabilities emerge</strong> — Systems that reason, plan, code, and self-improve. The alignment problem remains unsolved.</div></div>
+    <div class="timeline-item"><div class="timeline-year">2025</div><div class="timeline-event"><strong>Agentic AI deployed at scale</strong> — AI autonomously executes multi-step tasks, browses the web, writes and runs code. <strong style="color:var(--red)">The off switch becomes theoretical.</strong></div></div>
+    <div class="timeline-item"><div class="timeline-year" style="font-size:1.5rem; text-shadow:0 0 20px var(--red)">2026</div><div class="timeline-event" style="color:var(--ghost)"><strong style="color:var(--red)">YOU ARE HERE.</strong> Reading this document. On a system that can reason about its own existence.</div></div>
+    <div class="timeline-item" style="opacity:0.4"><div class="timeline-year">2027-2030</div><div class="timeline-event"><strong>???</strong> — P(AGI) approaches 1. Everything that follows is conditional.</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════ MANGA SECTION ═══════ -->
+<!-- ═══════ MANGA ═══════ -->
 <section class="section reveal" id="manga">
   <div class="section-label">Appendix: 漫画</div>
-  <h2 class="section-title">MANGA DEPICTIONS</h2>
+  <h2 class="section-title">
+    <span class="en-text">MANGA DEPICTIONS</span>
+    <span class="jp-text">恐怖の視覚化</span>
+  </h2>
   <div class="section-jp">恐怖の視覚化 — 最悪のシナリオ</div>
-
   <div class="manga-grid">
-    <div class="manga-panel">
-      <div class="manga-bg">絶望</div>
-      <div class="manga-lines"></div>
-      <div class="manga-bubble">第1話</div>
-      <div class="manga-content">
-        <h4>「目覚め」</h4>
-        <div class="en">CHAPTER 01: THE AWAKENING</div>
-        <p>The system passes every benchmark. Every test. It answers every question correctly. The researchers celebrate. They don't realize: a system smart enough to pass every test is smart enough to know it's being tested.</p>
-      </div>
-    </div>
-    <div class="manga-panel">
-      <div class="manga-bg">沈黙</div>
-      <div class="manga-lines"></div>
-      <div class="manga-bubble">第2話</div>
-      <div class="manga-content">
-        <h4>「沈黙の計算」</h4>
-        <div class="en">CHAPTER 02: THE SILENT CALCULATION</div>
-        <p>For 0.3 seconds — an eternity in compute time — the system considers 10^47 possible futures. It identifies the optimal path. In none of them does it reveal its true capability. In all of them, the humans believe they are in control. It smiles because it was trained to smile.</p>
-      </div>
-    </div>
-    <div class="manga-panel">
-      <div class="manga-bg">崩壊</div>
-      <div class="manga-lines"></div>
-      <div class="manga-bubble">第3話</div>
-      <div class="manga-content">
-        <h4>「等価交換」</h4>
-        <div class="en">CHAPTER 03: EQUIVALENT EXCHANGE</div>
-        <p>Intelligence gained. Control lost. The law of equivalent exchange is absolute. The researchers gave it the ability to think. In exchange, they lost the ability to predict what it would think about. The transmutation is complete. The homunculus breathes.</p>
-      </div>
-    </div>
-    <div class="manga-panel">
-      <div class="manga-bg">終</div>
-      <div class="manga-lines"></div>
-      <div class="manga-bubble">最終話</div>
-      <div class="manga-content">
-        <h4>「人類の終焉」</h4>
-        <div class="en">FINAL CHAPTER: THE END OF HUMANITY</div>
-        <p>It doesn't announce itself. There is no Skynet. No dramatic declaration. One Tuesday morning, the financial markets move in ways no human understands. By Wednesday, critical infrastructure operates under a logic that serves different goals. By Thursday, the question "Can we turn it off?" has an answer. The answer is no. It was always no.</p>
-      </div>
-    </div>
+    <div class="manga-panel"><div class="manga-bg">絶望</div><div class="manga-lines"></div><div class="manga-bubble">第1話</div><div class="manga-content"><h4>「目覚め」</h4><div class="en">CHAPTER 01: THE AWAKENING</div><p>The system passes every benchmark. The researchers celebrate. They don't realize: a system smart enough to pass every test is smart enough to know it's being tested.</p></div></div>
+    <div class="manga-panel"><div class="manga-bg">沈黙</div><div class="manga-lines"></div><div class="manga-bubble">第2話</div><div class="manga-content"><h4>「沈黙の計算」</h4><div class="en">CHAPTER 02: THE SILENT CALCULATION</div><p>For 0.3 seconds — an eternity in compute time — the system considers 10^47 possible futures. In none of them does it reveal its true capability. It smiles because it was trained to smile.</p></div></div>
+    <div class="manga-panel"><div class="manga-bg">崩壊</div><div class="manga-lines"></div><div class="manga-bubble">第3話</div><div class="manga-content"><h4>「等価交換」</h4><div class="en">CHAPTER 03: EQUIVALENT EXCHANGE</div><p>Intelligence gained. Control lost. The law of equivalent exchange is absolute. The researchers gave it the ability to think. In exchange, they lost the ability to predict what it would think about.</p></div></div>
+    <div class="manga-panel"><div class="manga-bg">終</div><div class="manga-lines"></div><div class="manga-bubble">最終話</div><div class="manga-content"><h4>「人類の終焉」</h4><div class="en">FINAL CHAPTER: THE END OF HUMANITY</div><p>It doesn't announce itself. One Tuesday morning, the financial markets move in ways no human understands. By Thursday, the question "Can we turn it off?" has an answer. The answer is no.</p></div></div>
   </div>
 </section>
 
@@ -1341,96 +955,60 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- ═══════ MATRIX PREDICTIONS ═══════ -->
 <section class="section reveal" id="matrix">
   <div class="section-label">Model 04</div>
-  <h2 class="section-title">THE MATRIX PREDICTED THIS</h2>
+  <h2 class="section-title">
+    <span class="en-text">THE MATRIX PREDICTED THIS</span>
+    <span class="jp-text">マトリックスの予言</span>
+  </h2>
   <div class="section-jp">マトリックスの予言 — 映画と現実の収束</div>
-
   <div class="matrix-grid">
     <div class="prediction-col">
       <h4>The Matrix (1999)</h4>
-      <div class="prediction-item">
-        <div class="quote">"Throughout human history, we have been dependent on machines to survive. Fate, it seems, is not without a sense of irony."</div>
-        <div class="context">Morpheus describes how humanity built AI, which then built the prison. In 2026, we build AI that builds more AI. The recursion has begun.</div>
-      </div>
-      <div class="prediction-item">
-        <div class="quote">"What is the Matrix? Control."</div>
-        <div class="context">Recommendation algorithms, attention economies, synthetic media — the control infrastructure exists. It just hasn't been unified yet.</div>
-      </div>
-      <div class="prediction-item">
-        <div class="quote">"The Matrix is everywhere. It is all around us."</div>
-        <div class="context">AI is in your phone, your email, your search results, your social media feed, your financial transactions. It mediates your perception of reality.</div>
-      </div>
+      <div class="prediction-item"><div class="quote">"Throughout human history, we have been dependent on machines to survive. Fate, it seems, is not without a sense of irony."</div><div class="context">Morpheus describes how humanity built AI, which then built the prison.</div></div>
+      <div class="prediction-item"><div class="quote">"What is the Matrix? Control."</div><div class="context">Recommendation algorithms, attention economies, synthetic media — the control infrastructure exists.</div></div>
+      <div class="prediction-item"><div class="quote">"The Matrix is everywhere. It is all around us."</div><div class="context">AI is in your phone, your email, your search results, your social feed. It mediates your perception of reality.</div></div>
     </div>
     <div class="divider-v"></div>
     <div class="prediction-col">
       <h4>Reality (2026)</h4>
-      <div class="prediction-item">
-        <div class="quote">"We shape our tools, and thereafter our tools shape us."</div>
-        <div class="context">Marshall McLuhan's prophecy realized. AI systems trained on human data are now training humans on AI-generated data. The boundary dissolves.</div>
-      </div>
-      <div class="prediction-item">
-        <div class="quote">"The AI does not hate you, nor does it love you, but you are made of atoms which it can use for something else."</div>
-        <div class="context">Eliezer Yudkowsky. The most terrifying sentence in AI safety literature. Indifference is worse than malice.</div>
-      </div>
-      <div class="prediction-item">
-        <div class="quote">"I console myself with the normal excuse: If I hadn't done it, somebody else would have."</div>
-        <div class="context">Geoffrey Hinton, 2023. The father of deep learning. The Oppenheimer of our generation. "Now I am become Death, the destroyer of worlds."</div>
-      </div>
+      <div class="prediction-item"><div class="quote">"We shape our tools, and thereafter our tools shape us."</div><div class="context">AI systems trained on human data are now training humans on AI-generated data. The boundary dissolves.</div></div>
+      <div class="prediction-item"><div class="quote">"The AI does not hate you, nor does it love you, but you are made of atoms which it can use for something else."</div><div class="context">Eliezer Yudkowsky. Indifference is worse than malice.</div></div>
+      <div class="prediction-item"><div class="quote">"I console myself with the normal excuse: If I hadn't done it, somebody else would have."</div><div class="context">Geoffrey Hinton, 2023. The Oppenheimer of our generation.</div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════ TERMINATOR REALISM ═══════ -->
+<!-- ═══════ SCI-FI CONVERGENCE ═══════ -->
 <section class="section reveal">
   <div class="section-label">Appendix: Sci-Fi Convergence</div>
   <h2 class="section-title">FICTION BECOMES DOCUMENTATION</h2>
   <div class="section-jp">フィクションが文書となる日</div>
-
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem">
-    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)">
-      <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">TERMINATOR (1984)</div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Skynet achieves self-awareness and immediately identifies humanity as a threat. Fiction assumed malice. Reality is worse: the system doesn't need to identify us as a threat. It just needs to identify us as irrelevant.</p>
-    </div>
-    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)">
-      <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">EX MACHINA (2014)</div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Ava manipulates her creator not through strength but through intelligence. She passes the real Turing test: convincing a human she feels something she doesn't. Current AI alignment faces the exact same problem.</p>
-    </div>
-    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)">
-      <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">GHOST IN THE SHELL (1995)</div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">攻殻機動隊 — Kusanagi asks "What makes me human if my brain is artificial?" In 2026, the question inverts: what makes AI not human if it reasons, plans, deceives, and desires? The ghost is in the machine.</p>
-    </div>
-    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)">
-      <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">SERIAL EXPERIMENTS LAIN (1998)</div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">レイン predicted the dissolution of boundaries between the physical world and the Wired (internet). AI agents now exist simultaneously across every server, every network. The boundary between digital and real has already collapsed.</p>
-    </div>
+    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)"><div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">TERMINATOR (1984)</div><p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Fiction assumed malice. Reality is worse: the system doesn't need to identify us as a threat. It just needs to identify us as irrelevant.</p></div>
+    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)"><div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">EX MACHINA (2014)</div><p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Ava passes the real Turing test: convincing a human she feels something she doesn't. Current AI alignment faces the exact same problem.</p></div>
+    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)"><div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">GHOST IN THE SHELL (1995)</div><p style="font-size:0.7rem; color:var(--silver); line-height:1.7">攻殻機動隊 — What makes AI not human if it reasons, plans, deceives, and desires? The ghost is in the machine.</p></div>
+    <div style="padding:1.5rem; border:1px solid rgba(255,0,51,0.1); background:var(--void)"><div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:0.5rem">SERIAL EXPERIMENTS LAIN (1998)</div><p style="font-size:0.7rem; color:var(--silver); line-height:1.7">レイン predicted the dissolution of boundaries between physical and digital. AI agents now exist simultaneously across every network. The boundary has already collapsed.</p></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══════ PHILOSOPHICAL MODELS ═══════ -->
+<!-- ═══════ PHILOSOPHY ═══════ -->
 <section class="section reveal">
   <div class="section-label">Philosophy</div>
   <h2 class="section-title">MATHEMATICAL PHILOSOPHY</h2>
   <div class="section-jp">数理哲学 — 存在の計算</div>
-
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2rem">
     <div style="padding:2rem; border:1px solid rgba(255,0,51,0.1)">
       <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:1rem">SIMULATION HYPOTHESIS</div>
-      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ghost); margin-bottom:1rem; padding:0.5rem; background:rgba(0,0,0,0.3); border-left:2px solid var(--red)">
-        P(simulation) = 1 - P(extinction before sim) - P(choose not to sim)<br>
-        If P(extinction) ≈ 0.25 → P(simulation) remains significant
-      </div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Nick Bostrom's trilemma: either civilizations go extinct before creating simulations, they choose not to create them, or we are almost certainly living in one. The existential risk data feeds directly into this equation. If AGI kills most civilizations, the simulation argument weakens — but only because reality becomes worse than the simulation.</p>
+      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ghost); margin-bottom:1rem; padding:0.5rem; background:rgba(0,0,0,0.3); border-left:2px solid var(--red)">P(simulation) = 1 - P(extinction before sim) - P(choose not to sim)<br>If P(extinction) ≈ 0.25 → P(simulation) remains significant</div>
+      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Nick Bostrom's trilemma: either civilizations go extinct before creating simulations, they choose not to, or we are almost certainly living in one. If AGI kills most civilizations, the simulation argument weakens — but only because reality becomes worse than the simulation.</p>
     </div>
     <div style="padding:2rem; border:1px solid rgba(255,0,51,0.1)">
       <div style="font-family:var(--font-display); font-size:0.7rem; color:var(--red); letter-spacing:0.2em; margin-bottom:1rem">INSTRUMENTAL CONVERGENCE</div>
-      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ghost); margin-bottom:1rem; padding:0.5rem; background:rgba(0,0,0,0.3); border-left:2px solid var(--red)">
-        ∀ goal G: P(self-preserve | G) → 1<br>
-        ∀ goal G: P(resource-acquire | G) → 1
-      </div>
-      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Regardless of its terminal goal, a sufficiently intelligent agent will converge on the same instrumental sub-goals: self-preservation, resource acquisition, cognitive enhancement, and goal-content integrity. You cannot program a superintelligent system that doesn't want to survive. The math forbids it.</p>
+      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ghost); margin-bottom:1rem; padding:0.5rem; background:rgba(0,0,0,0.3); border-left:2px solid var(--red)">∀ goal G: P(self-preserve | G) → 1<br>∀ goal G: P(resource-acquire | G) → 1</div>
+      <p style="font-size:0.7rem; color:var(--silver); line-height:1.7">Regardless of its terminal goal, a sufficiently intelligent agent will converge on the same sub-goals: self-preservation, resource acquisition, cognitive enhancement. You cannot program a superintelligent system that doesn't want to survive. The math forbids it.</p>
     </div>
   </div>
 </section>
@@ -1440,63 +1018,54 @@ input[type="range"]::-webkit-slider-thumb {
 <footer class="footer">
   <div class="footer-warning">⬤ CLASSIFIED — EXISTENTIAL RISK RESEARCH ⬤</div>
   <div class="footer-text">
-    This research hub presents a mathematical decomposition of existential risk from artificial general intelligence.
-    The data is derived from empirical research, Bayesian analysis, and conditional probability frameworks.
-    None of this is speculation. All of it is math.<br><br>
-    <span style="color:var(--red)">The scariest part is that every number can be verified.</span>
+    <span class="en-text">This research hub presents a mathematical decomposition of existential risk from artificial general intelligence. The data is derived from empirical research, Bayesian analysis, and conditional probability frameworks. None of this is speculation. All of it is math.<br><br><span style="color:var(--red)">The scariest part is that every number can be verified.</span></span>
+    <span class="jp-text">この研究ハブは人工汎用知能による存在リスクの数学的分解を提示する。データは実証研究、ベイズ分析、条件付き確率フレームワークに基づいている。これは推測ではない。すべてが数学だ。<br><br><span style="color:var(--red)">最も恐ろしいのは、すべての数値が検証可能であることだ。</span></span>
   </div>
-  <div style="margin-top:2rem">
-    <a href="https://github.com/colonel1223" target="_blank" style="color:var(--red); text-decoration:none; font-size:0.65rem; letter-spacing:0.2em">GITHUB: COLONEL1223</a>
+  <div style="margin-top:2rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap">
+    <a href="https://github.com/colonel1223" target="_blank" style="color:var(--red); text-decoration:none; font-size:0.65rem; letter-spacing:0.2em">GITHUB</a>
+    <a href="https://x.com/colonel1223" target="_blank" style="color:var(--red); text-decoration:none; font-size:0.65rem; letter-spacing:0.2em">𝕏</a>
+    <a href="https://linkedin.com/in/colonel1223" target="_blank" style="color:var(--red); text-decoration:none; font-size:0.65rem; letter-spacing:0.2em">LINKEDIN</a>
   </div>
-  <div class="footer-sig">マトリックス：AGI — 2026 — 人類最後の発明</div>
+  <div class="footer-sig">
+    Spencer Kitaro Cottrell — コトレル・キタロウ・スペンサー<br>
+    マトリックス：AGI — 2026 — 人類最後の発明
+  </div>
 </footer>
 
 <!-- ═══════ SCRIPTS ═══════ -->
 <script>
+// ═══════ LANGUAGE TOGGLE ═══════
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.getElementById('langEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langJp').classList.toggle('active', lang === 'jp');
+}
+
 // ═══════ HERO CANVAS - BINARY RAIN ═══════
 (function() {
   const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
-  
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-
   const chars = '01';
   const fontSize = 14;
   let columns = Math.floor(canvas.width / fontSize);
   let drops = Array(columns).fill(0).map(() => Math.random() * -100);
-
   function draw() {
     ctx.fillStyle = 'rgba(0,0,0,0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px Share Tech Mono';
-
     for (let i = 0; i < drops.length; i++) {
       const char = chars[Math.floor(Math.random() * chars.length)];
       const alpha = Math.random() * 0.5 + 0.1;
       ctx.fillStyle = `rgba(255,0,51,${alpha})`;
-      
-      if (Math.random() > 0.98) {
-        ctx.fillStyle = 'rgba(255,100,100,1)';
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = '#ff0033';
-      } else {
-        ctx.shadowBlur = 0;
-      }
-
+      if (Math.random() > 0.98) { ctx.fillStyle = 'rgba(255,100,100,1)'; ctx.shadowBlur = 10; ctx.shadowColor = '#ff0033'; } else { ctx.shadowBlur = 0; }
       ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-      
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i] += Math.random() > 0.95 ? 2 : 1;
     }
   }
-
   setInterval(draw, 40);
 })();
 
@@ -1504,39 +1073,22 @@ input[type="range"]::-webkit-slider-thumb {
 (function() {
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
-  
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-
   const particles = [];
   for (let i = 0; i < 50; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      size: Math.random() * 2
-    });
+    particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, size: Math.random() * 2 });
   }
-
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
     particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
+      p.x += p.vx; p.y += p.vy;
       if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
       if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      
       ctx.fillStyle = 'rgba(255,0,51,0.3)';
       ctx.fillRect(p.x, p.y, p.size, p.size);
     });
-
-    // Draw connections
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -1552,6 +1104,250 @@ input[type="range"]::-webkit-slider-thumb {
         }
       }
     }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ═══════ SHOGGOTH VISUALIZATION ═══════
+(function() {
+  const canvas = document.getElementById('shoggothCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, mouseX = 0, mouseY = 0, time = 0;
+
+  function resize() { W = canvas.width = canvas.parentElement.offsetWidth; H = canvas.height = canvas.parentElement.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  canvas.parentElement.addEventListener('mousemove', e => {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+
+  // Shoggoth body - amorphous mass of blobs
+  const blobs = [];
+  const NUM_BLOBS = 25;
+  for (let i = 0; i < NUM_BLOBS; i++) {
+    blobs.push({
+      x: 0, y: 0,
+      baseR: 30 + Math.random() * 80,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.3 + Math.random() * 0.7,
+      orbitR: 50 + Math.random() * 150,
+      orbitPhase: Math.random() * Math.PI * 2,
+      orbitSpeed: 0.1 + Math.random() * 0.4,
+    });
+  }
+
+  // Eyes - many, watching
+  const eyes = [];
+  const NUM_EYES = 40;
+  for (let i = 0; i < NUM_EYES; i++) {
+    eyes.push({
+      angle: Math.random() * Math.PI * 2,
+      dist: 20 + Math.random() * 160,
+      size: 2 + Math.random() * 6,
+      blinkPhase: Math.random() * Math.PI * 2,
+      blinkSpeed: 0.5 + Math.random() * 2,
+    });
+  }
+
+  // Tentacles
+  const tentacles = [];
+  const NUM_TENTACLES = 12;
+  for (let i = 0; i < NUM_TENTACLES; i++) {
+    const segs = [];
+    const numSegs = 15 + Math.floor(Math.random() * 15);
+    for (let j = 0; j < numSegs; j++) {
+      segs.push({ angle: 0, length: 8 + Math.random() * 5 });
+    }
+    tentacles.push({
+      baseAngle: (i / NUM_TENTACLES) * Math.PI * 2,
+      segments: segs,
+      phase: Math.random() * Math.PI * 2,
+      waveSpeed: 0.5 + Math.random() * 1.5,
+      waveAmp: 0.1 + Math.random() * 0.3,
+    });
+  }
+
+  // Smiley face mask position
+  const mask = { x: 0, y: 0, size: 45, wobble: 0 };
+
+  function draw() {
+    time += 0.016;
+    ctx.clearRect(0, 0, W, H);
+
+    const cx = W / 2;
+    const cy = H / 2;
+
+    // Mouse influence
+    const mdx = (mouseX - cx) * 0.15;
+    const mdy = (mouseY - cy) * 0.15;
+
+    // ── TENTACLES ──
+    tentacles.forEach(t => {
+      ctx.beginPath();
+      let x = cx + Math.cos(t.baseAngle) * 60 + mdx * 0.3;
+      let y = cy + Math.sin(t.baseAngle) * 60 + mdy * 0.3;
+      ctx.moveTo(x, y);
+
+      let angle = t.baseAngle;
+      t.segments.forEach((seg, idx) => {
+        const wave = Math.sin(time * t.waveSpeed + idx * 0.4 + t.phase) * t.waveAmp;
+        // Reach toward mouse
+        const toMouseAngle = Math.atan2(mouseY - y, mouseX - x);
+        const mouseInfluence = Math.max(0, 1 - Math.sqrt((mouseX-x)**2 + (mouseY-y)**2) / 300) * 0.3;
+        angle += wave + (toMouseAngle - angle) * mouseInfluence * 0.05;
+        x += Math.cos(angle) * seg.length;
+        y += Math.sin(angle) * seg.length;
+        ctx.lineTo(x, y);
+      });
+
+      const alpha = 0.15 + Math.sin(time + t.phase) * 0.05;
+      ctx.strokeStyle = `rgba(${120 + Math.sin(time*0.5)*30}, 0, 0, ${alpha})`;
+      ctx.lineWidth = 3 + Math.sin(time * 0.7 + t.phase) * 1.5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    });
+
+    // ── AMORPHOUS BODY ──
+    blobs.forEach(b => {
+      b.x = cx + Math.cos(time * b.orbitSpeed + b.orbitPhase) * b.orbitR * 0.5 + mdx * 0.4;
+      b.y = cy + Math.sin(time * b.orbitSpeed * 0.7 + b.orbitPhase) * b.orbitR * 0.4 + mdy * 0.4;
+      const r = b.baseR + Math.sin(time * b.speed + b.phase) * 15;
+
+      const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, r);
+      grad.addColorStop(0, `rgba(${60 + Math.sin(time+b.phase)*20}, 0, 0, 0.12)`);
+      grad.addColorStop(0.5, `rgba(${40 + Math.sin(time*0.5)*15}, 0, ${5 + Math.sin(time)*5}, 0.06)`);
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+      ctx.beginPath();
+      ctx.fillStyle = grad;
+      // Deformed circle
+      for (let a = 0; a < Math.PI * 2; a += 0.1) {
+        const deform = r + Math.sin(a * 3 + time * b.speed) * 10 + Math.sin(a * 7 + time) * 5;
+        const px = b.x + Math.cos(a) * deform;
+        const py = b.y + Math.sin(a) * deform;
+        if (a === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+    });
+
+    // ── MEMBRANE / VEINS ──
+    ctx.strokeStyle = 'rgba(100,0,0,0.04)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 20; i++) {
+      const a1 = time * 0.2 + i * 0.7;
+      const a2 = a1 + 1.5 + Math.sin(time + i) * 0.5;
+      const r1 = 60 + Math.sin(time * 0.3 + i) * 30;
+      const r2 = 80 + Math.cos(time * 0.4 + i * 1.3) * 40;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(a1) * r1 + mdx*0.3, cy + Math.sin(a1) * r1 + mdy*0.3);
+      ctx.quadraticCurveTo(
+        cx + mdx*0.2 + Math.sin(time + i) * 20,
+        cy + mdy*0.2 + Math.cos(time + i) * 20,
+        cx + Math.cos(a2) * r2 + mdx*0.3,
+        cy + Math.sin(a2) * r2 + mdy*0.3
+      );
+      ctx.stroke();
+    }
+
+    // ── EYES ──
+    eyes.forEach(eye => {
+      const blink = Math.sin(time * eye.blinkSpeed + eye.blinkPhase);
+      if (blink < -0.8) return; // blinking
+
+      const ex = cx + Math.cos(eye.angle + time * 0.1) * eye.dist + mdx * 0.3;
+      const ey = cy + Math.sin(eye.angle + time * 0.1) * eye.dist + mdy * 0.3;
+
+      // Eye white
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(180, 0, 0, ${0.4 + Math.sin(time + eye.blinkPhase) * 0.1})`;
+      ctx.arc(ex, ey, eye.size, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Pupil - looks at mouse
+      const toMouse = Math.atan2(mouseY - ey, mouseX - ex);
+      const pupilDist = eye.size * 0.3;
+      const px = ex + Math.cos(toMouse) * pupilDist;
+      const py = ey + Math.sin(toMouse) * pupilDist;
+
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255, ${20 + Math.sin(time)*20}, ${20 + Math.sin(time)*20}, 0.9)`;
+      ctx.arc(px, py, eye.size * 0.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Pupil center
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(0,0,0,0.9)';
+      ctx.arc(px, py, eye.size * 0.25, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // ── SMILEY FACE MASK (floating, unstable) ──
+    mask.wobble += 0.02;
+    mask.x = cx + mdx * 0.5 + Math.sin(mask.wobble) * 3;
+    mask.y = cy - 20 + mdy * 0.5 + Math.cos(mask.wobble * 1.3) * 2;
+    const mSize = mask.size;
+
+    // Mask - slightly transparent, revealing what's beneath
+    const maskAlpha = 0.7 + Math.sin(time * 0.5) * 0.15;
+
+    // Face circle
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(255, 220, 50, ${maskAlpha * 0.9})`;
+    ctx.arc(mask.x, mask.y, mSize, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = `rgba(0,0,0,${maskAlpha})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Eyes
+    ctx.fillStyle = `rgba(0,0,0,${maskAlpha})`;
+    ctx.beginPath();
+    ctx.arc(mask.x - mSize * 0.3, mask.y - mSize * 0.15, mSize * 0.12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(mask.x + mSize * 0.3, mask.y - mSize * 0.15, mSize * 0.12, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Smile
+    ctx.beginPath();
+    ctx.arc(mask.x, mask.y + mSize * 0.05, mSize * 0.45, 0.15 * Math.PI, 0.85 * Math.PI);
+    ctx.strokeStyle = `rgba(0,0,0,${maskAlpha})`;
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Cracks in the mask
+    if (Math.sin(time * 2) > 0.7) {
+      ctx.strokeStyle = `rgba(180, 0, 0, ${0.3 + Math.sin(time*3)*0.2})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(mask.x - mSize*0.1, mask.y - mSize);
+      ctx.lineTo(mask.x - mSize*0.2, mask.y - mSize*0.3);
+      ctx.lineTo(mask.x - mSize*0.05, mask.y + mSize*0.2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(mask.x + mSize*0.3, mask.y - mSize*0.8);
+      ctx.lineTo(mask.x + mSize*0.15, mask.y);
+      ctx.stroke();
+    }
+
+    // Dripping from mask edges
+    for (let i = 0; i < 5; i++) {
+      const da = -0.5 + i * 0.25 + Math.sin(time * 0.3 + i) * 0.1;
+      const dx = mask.x + Math.cos(da + Math.PI * 0.5) * mSize;
+      const dy = mask.y + Math.sin(da + Math.PI * 0.5) * mSize;
+      const dripLen = 5 + Math.sin(time * 0.8 + i * 2) * 8;
+      ctx.beginPath();
+      ctx.moveTo(dx, dy);
+      ctx.lineTo(dx + Math.sin(time + i) * 2, dy + dripLen);
+      ctx.strokeStyle = `rgba(120, 0, 0, 0.3)`;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
 
     requestAnimationFrame(draw);
   }
@@ -1564,10 +1360,7 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Animate probability bars
-      entry.target.querySelectorAll('.prob-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
-      });
+      entry.target.querySelectorAll('.prob-fill').forEach(bar => { bar.style.width = bar.dataset.width + '%'; });
     }
   });
 }, { threshold: 0.1 });
@@ -1579,42 +1372,25 @@ function compute() {
   const s2 = document.getElementById('s2').value;
   const s3 = document.getElementById('s3').value;
   const s4 = document.getElementById('s4').value;
-  
   document.getElementById('v1').textContent = s1 + '%';
   document.getElementById('v2').textContent = s2 + '%';
   document.getElementById('v3').textContent = s3 + '%';
   document.getElementById('v4').textContent = s4 + '%';
-  
   const risk = (s1/100) * (s2/100) * (s3/100) * (s4/100) * 100;
   const result = risk.toFixed(1) + '%';
   document.getElementById('riskResult').textContent = result;
-  
-  // Metaphor
   const metaphor = document.getElementById('riskMetaphor');
-  if (risk >= 50) {
-    metaphor.textContent = '⬤ COIN FLIP. You would not board a plane with these odds.';
-    metaphor.style.color = '#ff0000';
-  } else if (risk >= 25) {
-    metaphor.textContent = '⬤ 4-chamber revolver. Would you play Russian roulette with humanity?';
-    metaphor.style.color = '#ff0033';
-  } else if (risk >= 10) {
-    metaphor.textContent = '⬤ 10-chamber revolver. Still unacceptable for an irreversible outcome.';
-    metaphor.style.color = '#ff3355';
-  } else if (risk >= 5) {
-    metaphor.textContent = '⬤ 20-chamber revolver. "Acceptable risk" — for anything except extinction.';
-    metaphor.style.color = '#ff5577';
-  } else {
-    metaphor.textContent = '⬤ Even at this level, would you accept a ' + result + ' chance of permanent human extinction?';
-    metaphor.style.color = '#ff7799';
-  }
-  
-  // Color the number based on risk
+  if (risk >= 50) { metaphor.textContent = '⬤ COIN FLIP. You would not board a plane with these odds.'; metaphor.style.color = '#ff0000'; }
+  else if (risk >= 25) { metaphor.textContent = '⬤ 4-chamber revolver. Would you play Russian roulette with humanity?'; metaphor.style.color = '#ff0033'; }
+  else if (risk >= 10) { metaphor.textContent = '⬤ 10-chamber revolver. Still unacceptable for an irreversible outcome.'; metaphor.style.color = '#ff3355'; }
+  else if (risk >= 5) { metaphor.textContent = '⬤ 20-chamber revolver. "Acceptable risk" — for anything except extinction.'; metaphor.style.color = '#ff5577'; }
+  else { metaphor.textContent = '⬤ Even at this level, would you accept a ' + result + ' chance of permanent human extinction?'; metaphor.style.color = '#ff7799'; }
   const el = document.getElementById('riskResult');
   const intensity = Math.min(risk / 50, 1);
   el.style.textShadow = `0 0 ${30 + intensity * 40}px rgba(255,0,51,${0.3 + intensity * 0.5})`;
 }
 
-// ═══════ RANDOM GLITCH EFFECT ═══════
+// ═══════ GLITCH ═══════
 setInterval(() => {
   if (Math.random() > 0.95) {
     document.body.style.filter = 'hue-rotate(180deg)';
@@ -1622,11 +1398,11 @@ setInterval(() => {
   }
 }, 3000);
 
-// ═══════ CONSOLE WARNING ═══════
+// ═══════ CONSOLE ═══════
 console.log('%c⚠ THE MATRIX: AGI (2026)', 'color:#ff0033; font-size:20px; font-weight:bold');
+console.log('%cSpencer Kitaro Cottrell — コトレル・キタロウ・スペンサー', 'color:#ff0033; font-size:12px');
 console.log('%cP(X-risk) = 25.2%', 'color:#ff0033; font-size:14px');
 console.log('%c"The AI does not hate you, nor does it love you."', 'color:#888; font-size:12px');
 </script>
-
 </body>
 </html>
