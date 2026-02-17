@@ -1,78 +1,15 @@
-/* ===== HUD OVERRIDE (wins against existing CSS) ===== */
-:root{
-  --hudH: 40px;
-  --navH: 56px;
-}
+:root{ --hudH:40px; --creditsH:0px; --navH:56px; }
 
-/* Force HUD on top */
+/* HUD stays on top */
 #top-status-wrap{
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 20000 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 22px !important;
-  padding: 8px 16px !important;
+  position:fixed !important;
+  top:0 !important; left:0 !important; right:0 !important;
+  z-index:20000 !important;
+  display:flex !important; align-items:center !important; gap:22px !important;
+  padding:8px 16px !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
-  font-size: 12px !important;
-  letter-spacing: 1px !important;
-  color: rgba(255,0,51,.95) !important;
-  background: rgba(0,0,0,.72) !important;
-  border-bottom: 1px solid rgba(255,0,51,.28) !important;
-  backdrop-filter: blur(10px
-
-
-cd ~/Desktop/matrix && \
-cat << 'EOF' > hud_override.css
-/* ===== HUD OVERRIDE (wins against existing CSS) ===== */
-:root{
-  --hudH: 40px;
-  --navH: 56px;
-}
-
-/* Force HUD on top */
-#top-status-wrap{
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 20000 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 22px !important;
-  padding: 8px 16px !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
-  font-size: 12px !important;
-  letter-spacing: 1px !important;
-  color: rgba(255,0,51,.95) !important;
-  background: rgba(0,0,0,.72) !important;
-  border-bottom: 1px solid rgba(255,0,51,.28) !important;
-  backdrop-filter: blur(10px
-
-cd ~/Desktop/matrix && \
-cat << 'EOF' > hud_override.css
-/* ===== HUD OVERRIDE (wins against existing CSS) ===== */
-:root{
-  --hudH: 40px;
-  --navH: 56px;
-}
-
-/* Force HUD on top */
-#top-status-wrap{
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 20000 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 22px !important;
-  padding: 8px 16px !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
-  font-size: 12px !important;
-  letter-spacing: 1px !important;
+  font-size:12px !important;
+  letter-spacing:1px !important;
   color: rgba(255,0,51,.95) !important;
   background: rgba(0,0,0,.72) !important;
   border-bottom: 1px solid rgba(255,0,51,.28) !important;
@@ -80,27 +17,18 @@ cat << 'EOF' > hud_override.css
   -webkit-backdrop-filter: blur(10px) !important;
 }
 
-/* Make sure nav is BELOW HUD, not clipping */
-.nav{
-  position: fixed !important;
-  top: var(--hudH) !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 15000 !important;
-}
-
-/* Push the whole page content below HUD + nav */
+/* ensure nothing hides under fixed layers */
 body{
-  padding-top: calc(var(--hudH) + var(--navH) + 10px) !important;
+  padding-top: calc(var(--hudH) + var(--creditsH) + var(--navH) + 12px) !important;
 }
 
-/* Keep background canvases behind everything */
+/* keep canvases behind */
 canvas, .particle-bg, #particles, #heroCanvas{
-  z-index: 0 !important;
+  z-index:0 !important;
 }
 
-/* Ensure important UI layers sit above canvases */
-.hero, .section, .content, nav, header, #top-status-wrap{
+/* keep content above canvases */
+.hero, .section, .content, header, nav{
   position: relative;
-  z-index: 5;
+  z-index:5;
 }
