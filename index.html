@@ -566,6 +566,29 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14p
 </head>
 <body>
 
+<!-- ===== STATUS BAR ===== -->
+<div id="top-status-wrap" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:9999;
+background:#000;
+color:#ff0033;
+font-family:monospace;
+padding:6px 16px;
+font-size:12px;
+letter-spacing:1px;
+border-bottom:1px solid rgba(255,0,0,0.25);
+display:flex;
+gap:30px;
+">
+  <div>Today: <span id="todayDate"></span></div>
+  <div>Last Updated: <span id="lastUpdated"></span></div>
+  <div>Countdown: <span id="countdownLive"></span></div>
+</div>
+
+
 <canvas class="particle-bg" id="particles"></canvas>
 
 <!-- ═══════ CREDITS BAR ═══════ -->
