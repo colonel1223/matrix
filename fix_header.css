@@ -1,0 +1,46 @@
+
+/* ===== FIX: reveal credit bar under fixed nav ===== */
+
+/* push page down so credit bar is visible */
+body {
+  padding-top: 80px !important;
+}
+
+/* ensure credit bar si*
+
+sed -i '' 's#</head>#<link rel="stylesheet" href="fix_header.css">\n</head>#' index.html
+
+git add .
+git commit -m "fix header overlap"
+git push
+
+cd ~/Desktop/matrix
+ls fix_header.css
+cd ~/Desktop/matrix
+ls fix_header.css
+
+cd ~/Desktop/matrix
+ls fix_header.css
+
+fix_header.css
+
+git status
+
+git add .
+git commit -m "header fix"
+git push
+
+git add .
+git commit -m "header fix"
+git push
+
+git add .
+git commit -m "header fix"
+git push
+
+open https://colonel1223.github.io/matrix/
+
+CMD + SHIFT + R
+
+eof
+WOF
